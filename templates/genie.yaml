@@ -108,19 +108,6 @@ Resources:
           - ContainerPath: "/root/.ssh/genie.pem"
             ReadOnly: false
             SourceVolume: geniePem
-  BatchJobQueue:
-    Type: "AWS::Batch::JobQueue"
-    Properties:
-      JobQueueName: !Join
-        - '-'
-        - - !Ref AWS::StackName
-          - "job"
-          - "queue"
-      ComputeEnvironmentOrder:
-        - ComputeEnvironment: !Ref BatchComputeEnvironment
-          Order: 1
-      Priority: 1
-      State: ENABLED
   BatchJobDefinition2:
     Type: 'AWS::Batch::JobDefinition'
     Properties:
