@@ -6,3 +6,4 @@ dependencies:
 parameters:
   ComputeImageId: ami-283da057
   ContainerImage: sagebionetworks/genie:validation
+  ContainerImage2: sagebionetworks/genie:vcf2maf
