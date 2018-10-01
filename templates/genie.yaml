@@ -7,7 +7,10 @@ Parameters:
     Description: The Genie compute resource image ID
     Type: 'AWS::EC2::Image::Id'
   ContainerImage:
-    Description: The Genie docker container image
+    Description: The Genie main processing and validation docker container image
+    Type: String
+  ContainerImage2:
+    Description: The Genie mutation processing docker container image 
     Type: String
 
 Resources:
