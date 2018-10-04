@@ -6,10 +6,10 @@ Parameters:
   ComputeImageId:
     Description: The Genie compute resource image ID
     Type: 'AWS::EC2::Image::Id'
-  ContainerImage:
+  MainImage:
     Description: The Genie main processing and validation docker container image
     Type: String
-  ContainerImage2:
+  MutationImage:
     Description: The Genie mutation processing docker container image 
     Type: String
 
@@ -82,7 +82,7 @@ Resources:
           Order: 1
       Priority: 1
       State: ENABLED
-  BatchJobDefinition:
+  ValidationBatchJob:
     Type: 'AWS::Batch::JobDefinition'
     Properties:
       Type: container
@@ -92,7 +92,7 @@ Resources:
           - "job"
           - "validation"
       ContainerProperties:
-        Image: !Ref ContainerImage
+        Image: !Ref MainImage
         Vcpus: 8
         Memory: 8000
         Command:
@@ -111,7 +111,7 @@ Resources:
           - ContainerPath: "/root/.ssh/genie.pem"
             ReadOnly: false
             SourceVolume: geniePem
-  BatchJobDefinition2:
+  MainProcessingBatchJob:
     Type: 'AWS::Batch::JobDefinition'
     Properties:
       Type: container
@@ -121,7 +121,7 @@ Resources:
           - "job"
           - "mainprocess"
       ContainerProperties:
-        Image: !Ref ContainerImage
+        Image: !Ref MainImage
         Vcpus: 8
         Memory: 8000
         Command:
@@ -143,7 +143,7 @@ Resources:
           - ContainerPath: "/root/.ssh/genie.pem"
             ReadOnly: false
             SourceVolume: geniePem
-  BatchJobDefinition3:
+  MafBatchJob:
     Type: 'AWS::Batch::JobDefinition'
     Properties:
       Type: container
@@ -153,7 +153,7 @@ Resources:
           - "job"
           - "mafprocess"
       ContainerProperties:
-        Image: !Ref ContainerImage2
+        Image: !Ref MutationImage
         Vcpus: 8
         Memory: 32000
         Command:
@@ -345,6 +345,6 @@ Outputs:
     Export:
       Name: !Sub '${AWS::Region}-${AWS::StackName}-BatchJobQueue'
   BatchJobDefinition:
-    Value: !Ref BatchJobDefinition
+    Value: !Ref ValidationBatchJob
     Export:
-      Name: !Sub '${AWS::Region}-${AWS::StackName}-BatchJobDefinition'
+      Name: !Sub '${AWS::Region}-${AWS::StackName}-ValidationBatchJob'
