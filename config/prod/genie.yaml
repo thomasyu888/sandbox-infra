@@ -5,5 +5,5 @@ dependencies:
   - sandcastlevpc
 parameters:
   ComputeImageId: ami-283da057
-  ContainerImage: sagebionetworks/genie:latest
-  ContainerImage2: sagebionetworks/genie:vcf2maf
+  MainImage: sagebionetworks/genie:latest
+  MutationImage: sagebionetworks/genie:vcf2maf
