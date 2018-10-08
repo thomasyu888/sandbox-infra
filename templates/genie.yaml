@@ -344,7 +344,15 @@ Outputs:
     Value: !Ref BatchJobQueue
     Export:
       Name: !Sub '${AWS::Region}-${AWS::StackName}-BatchJobQueue'
-  BatchJobDefinition:
+  ValidationBatchJob:
     Value: !Ref ValidationBatchJob
     Export:
       Name: !Sub '${AWS::Region}-${AWS::StackName}-ValidationBatchJob'
+  MainProcessingBatchJob:
+    Value: !Ref MainProcessingBatchJob
+    Export:
+      Name: !Sub '${AWS::Region}-${AWS::StackName}-MainProcessingBatchJob'
+  MafBatchJob:
+    Value: !Ref MafBatchJob
+    Export:
+      Name: !Sub '${AWS::Region}-${AWS::StackName}-MafBatchJob'
