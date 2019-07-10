@@ -10,6 +10,106 @@ Resources:
   # 1. Detach or remove the following user resources: login profile, attached
   #    MFA device, access-keys, ssh-keys, and policies.
   # 2. Detach the user from all groups.
+  AWSIAMEliasChaibubNetoUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: elias.chaibub.neto@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true 
+  AWSIAMJinetaBanerjeeUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: jineta.banerjee@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true 
+  AWSIAMBrianWhiteUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: brian.white@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMMichaelMasonUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: michael.mason@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMMattWallUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: matthew.wall@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMRebeccaElyanowUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: rebecca.elyanow@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMAndrewLambUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: andrew.lamb@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMAaronBakerUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: aaron.baker@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMMilenNikolovUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: milen.nikolov@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMZimingDongTestUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: ziming.dong@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
   AWSIAMXavierSchildwachterUser:
     Type: 'AWS::IAM::User'
     Properties:
@@ -82,6 +182,93 @@ Resources:
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
+  AWSIAMXengieDoanUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: xengie.doan@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMJakeGockleyUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: jake.gockley@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMThomasSchaffterUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: thomas.schaffter@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMKimYenLadiaUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: kimyen.ladia@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMWilliamPoehlmanUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: william.poehlman@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMTessThyerUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: tess.thyer@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMAaronHaydenUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: aaron.hayden@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMJamesEddyUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: james.eddy@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  # for deployments from Sage-Bionetworks/PHCCollaborationPortal repo
+  PhccpServiceUser:
+    Type: 'AWS::IAM::User'
+  PhccpServiceUserAccessKey:
+    Type: 'AWS::IAM::AccessKey'
+    Properties:
+      UserName: !Ref PhccpServiceUser
   AWSIAMDeveloperUsersGroup:
     Type: 'AWS::IAM::Group'
     Properties:
@@ -90,6 +277,75 @@ Resources:
         - arn:aws:iam::aws:policy/IAMReadOnlyAccess
         - !Ref AWSIAMDynamoDenyDeletePolicy
         - !Ref AWSIAMRdsDenyDeletePolicy
+        - arn:aws:iam::aws:policy/AWSCodeDeployFullAccess
+  CodeDeployDeployerRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          -
+            Effect: "Allow"
+            Principal:
+              AWS:
+                - !GetAtt PhccpServiceUser.Arn
+                - !GetAtt AWSIAMThomasSchaffterUser.Arn
+            Action:
+              - "sts:AssumeRole"
+      Path: "/"
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AWSCodeDeployFullAccess
+  CodeDeployManagerRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          -
+            Effect: "Allow"
+            Principal:
+              AWS:
+                - !GetAtt AWSIAMThomasSchaffterUser.Arn
+            Action:
+              - "sts:AssumeRole"
+      Path: "/"
+  CodeDeployManagerPolicy:
+    Type: "AWS::IAM::Policy"
+    Properties:
+      PolicyName: CodeDeployDeployerPolicy
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - 
+            Effect: Allow
+            Action:
+            - autoscaling:*
+            - codedeploy:*
+            - ec2:*
+            - lambda:*
+            - ecs:*
+            - elasticloadbalancing:*
+            - iam:AddRoleToInstanceProfile
+            - iam:CreateInstanceProfile
+            - iam:CreateRole
+            - iam:DeleteInstanceProfile
+            - iam:DeleteRole
+            - iam:DeleteRolePolicy
+            - iam:GetInstanceProfile
+            - iam:GetRole
+            - iam:GetRolePolicy
+            - iam:ListInstanceProfilesForRole
+            - iam:ListRolePolicies
+            - iam:ListRoles
+            - iam:PassRole
+            - iam:PutRolePolicy
+            - iam:RemoveRoleFromInstanceProfile
+            - s3:*
+            Resource: "*"
+      Roles:
+        -
+          !Ref CodeDeployManagerRole
+
   AWSIAMAdminRole:
     Type: "AWS::IAM::Role"
     Properties:
@@ -103,7 +359,9 @@ Resources:
                 - !GetAtt AWSIAMXavierSchildwachterUser.Arn
                 - !GetAtt AWSIAMKhaiDoUser.Arn
                 - !GetAtt AWSIAMThomasYuUser.Arn
-                - !GetAtt AWSIAMPhilSnyderUser.Arn
+                - !GetAtt AWSIAMTessThyerUser.Arn
+                - !GetAtt AWSIAMAaronHaydenUser.Arn
+                - !GetAtt AWSIAMKennethDailyUser.Arn
             Action:
               - "sts:AssumeRole"
       Path: "/"
@@ -158,13 +416,6 @@ Resources:
       Roles:
         -
           !Ref AWSIAMAdminRole
-  AWSIAMInstanceProfile:
-    Type: "AWS::IAM::InstanceProfile"
-    Properties:
-      Path: "/"
-      Roles:
-        -
-          !Ref "AWSIAMAdminRole"
   AWSIAMAllUsersGroup:
     Type: 'AWS::IAM::Group'
     Properties:
@@ -284,3 +535,15 @@ Outputs:
     Value: !Ref AWSIAMEnforceMfaPolicy
     Export:
       Name: !Sub '${AWS::Region}-${AWS::StackName}-EnforceMfaPolicy'
+  PhccpServiceUserAccessKey:
+    Value: !Ref PhccpServiceUserAccessKey
+    Export:
+      Name: !Sub '${AWS::Region}-${AWS::StackName}-PhccpServiceUserAccessKey'
+  PhccpServiceUserSecretAccessKey:
+    Value: !GetAtt PhccpServiceUserAccessKey.SecretAccessKey
+    Export:
+      Name: !Sub '${AWS::Region}-${AWS::StackName}-PhccpServiceUserSecretAccessKey'
+  CodeDeployDeployerRoleArn:
+    Value: !GetAtt CodeDeployDeployerRole.Arn
+    Export:
+      Name: !Sub '${AWS::Region}-${AWS::StackName}-CodeDeployDeployerRoleArn'
