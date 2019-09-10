@@ -10,6 +10,46 @@ Resources:
   # 1. Detach or remove the following user resources: login profile, attached
   #    MFA device, access-keys, ssh-keys, and policies.
   # 2. Detach the user from all groups.
+  AWSIAMKelseyMontgomeryUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: kelsey.montgomery@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMBrianMBotUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: brian.bot@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMVerenaChungUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: verena.chung@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMArytonTediarjoUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: aryton.tediarjo@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
   AWSIAMEliasChaibubNetoUser:
     Type: 'AWS::IAM::User'
     Properties:
@@ -19,7 +59,7 @@ Resources:
         - !Ref AWSIAMDeveloperUsersGroup
       LoginProfile:
         Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true 
+        PasswordResetRequired: true
   AWSIAMJinetaBanerjeeUser:
     Type: 'AWS::IAM::User'
     Properties:
@@ -29,7 +69,7 @@ Resources:
         - !Ref AWSIAMDeveloperUsersGroup
       LoginProfile:
         Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true 
+        PasswordResetRequired: true
   AWSIAMBrianWhiteUser:
     Type: 'AWS::IAM::User'
     Properties:
@@ -80,10 +120,10 @@ Resources:
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
-  AWSIAMAaronBakerUser:
+  AWSIAMXindiGuoUser:
     Type: 'AWS::IAM::User'
     Properties:
-      UserName: aaron.baker@sagebase.org
+      UserName: xindi.guo@sagebase.org
       Groups:
         - !Ref AWSIAMAllUsersGroup
         - !Ref AWSIAMDeveloperUsersGroup
@@ -212,16 +252,6 @@ Resources:
       LoginProfile:
         Password: !Ref InitNewUserPassword
         PasswordResetRequired: true
-  AWSIAMKimYenLadiaUser:
-    Type: 'AWS::IAM::User'
-    Properties:
-      UserName: kimyen.ladia@sagebase.org
-      Groups:
-        - !Ref AWSIAMAllUsersGroup
-        - !Ref AWSIAMDeveloperUsersGroup
-      LoginProfile:
-        Password: !Ref InitNewUserPassword
-        PasswordResetRequired: true
   AWSIAMWilliamPoehlmanUser:
     Type: 'AWS::IAM::User'
     Properties:
@@ -256,6 +286,26 @@ Resources:
     Type: 'AWS::IAM::User'
     Properties:
       UserName: james.eddy@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMRobertMinnekerUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: robert.minneker@sagebase.org
+      Groups:
+        - !Ref AWSIAMAllUsersGroup
+        - !Ref AWSIAMDeveloperUsersGroup
+      LoginProfile:
+        Password: !Ref InitNewUserPassword
+        PasswordResetRequired: true
+  AWSIAMThomasCoreyUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: thomas.corey@sagebase.org
       Groups:
         - !Ref AWSIAMAllUsersGroup
         - !Ref AWSIAMDeveloperUsersGroup
@@ -316,7 +366,7 @@ Resources:
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
-          - 
+          -
             Effect: Allow
             Action:
             - autoscaling:*
@@ -362,6 +412,8 @@ Resources:
                 - !GetAtt AWSIAMTessThyerUser.Arn
                 - !GetAtt AWSIAMAaronHaydenUser.Arn
                 - !GetAtt AWSIAMKennethDailyUser.Arn
+                - !GetAtt AWSIAMRobertMinnekerUser.Arn
+                - !GetAtt AWSIAMXindiGuoUser.Arn
             Action:
               - "sts:AssumeRole"
       Path: "/"
@@ -422,6 +474,7 @@ Resources:
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/ReadOnlyAccess
         - !Ref AWSIAMEnforceMfaPolicy
+        - !Ref AWSViewReportsPolicy
   AWSIAMBillingManagersGroup:
     Type: 'AWS::IAM::Group'
     Properties:
@@ -530,6 +583,19 @@ Resources:
             Condition:
               BoolIfExists:
                 'aws:MultiFactorAuthPresent': 'false'
+  # policy allows viewing cost and usage reports
+  AWSViewReportsPolicy:
+    Type: 'AWS::IAM::ManagedPolicy'
+    Properties:
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Sid: AllowUserToViewUsage
+            Effect: Allow
+            Action:
+              - 'aws-portal:ViewUsage'
+              - 'aws-portal:ViewBilling'
+            Resource: '*'
 Outputs:
   AWSIAMEnforceMfaPolicy:
     Value: !Ref AWSIAMEnforceMfaPolicy
@@ -547,3 +613,7 @@ Outputs:
     Value: !GetAtt CodeDeployDeployerRole.Arn
     Export:
       Name: !Sub '${AWS::Region}-${AWS::StackName}-CodeDeployDeployerRoleArn'
+  AWSViewReportsPolicy:
+    Value: !Ref AWSViewReportsPolicy
+    Export:
+      Name: !Sub '${AWS::Region}-${AWS::StackName}-ViewReportsPolicy'
